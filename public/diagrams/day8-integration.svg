@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" role="img" aria-label="프론트-백 연동: 프론트가 fetch로 백엔드를 호출하고 백엔드가 DB와 주고받는다" font-family="system-ui, sans-serif">
+  <style>
+    .fe   { fill: #eef2ff; stroke: #6366f1; stroke-width: 2; }
+    .be   { fill: #f0fdf4; stroke: #16a34a; stroke-width: 2; }
+    .db   { fill: #ecfeff; stroke: #0891b2; stroke-width: 2; }
+    .ft   { fill: #312e81; font-size: 16px; font-weight: 700; }
+    .bt   { fill: #166534; font-size: 16px; font-weight: 700; }
+    .dt   { fill: #155e75; font-size: 16px; font-weight: 700; }
+    .sub  { fill: #64748b; font-size: 12px; }
+    .req  { fill: #6366f1; font-size: 12px; font-weight: 600; }
+    .res  { fill: #16a34a; font-size: 12px; font-weight: 600; }
+    @media (prefers-color-scheme: dark) {
+      .fe { fill: #1e1b4b; stroke: #818cf8; } .ft { fill: #e0e7ff; }
+      .be { fill: #052e16; stroke: #4ade80; } .bt { fill: #86efac; }
+      .db { fill: #083344; stroke: #22d3ee; } .dt { fill: #a5f3fc; }
+      .sub { fill: #94a3b8; } .res { fill: #4ade80; }
+    }
+  </style>
+  <defs>
+    <marker id="i1" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#6366f1"/></marker>
+    <marker id="i2" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#16a34a"/></marker>
+  </defs>
+
+  <rect class="fe" x="20"  y="90" width="160" height="80" rx="10"/>
+  <text class="ft"  x="100" y="125" text-anchor="middle">프론트</text>
+  <text class="sub" x="100" y="148" text-anchor="middle">화면 (fetch 호출)</text>
+
+  <rect class="be" x="280" y="90" width="160" height="80" rx="10"/>
+  <text class="bt"  x="360" y="125" text-anchor="middle">백엔드</text>
+  <text class="sub" x="360" y="148" text-anchor="middle">CRUD API</text>
+
+  <rect class="db" x="540" y="90" width="160" height="80" rx="10"/>
+  <text class="dt"  x="620" y="125" text-anchor="middle">DB</text>
+  <text class="sub" x="620" y="148" text-anchor="middle">진짜 데이터</text>
+
+  <!-- fe -> be -->
+  <line x1="182" y1="116" x2="276" y2="116" stroke="#6366f1" stroke-width="2" marker-end="url(#i1)"/>
+  <text class="req" x="229" y="106" text-anchor="middle">GET / POST</text>
+  <!-- be -> db -->
+  <line x1="442" y1="116" x2="536" y2="116" stroke="#6366f1" stroke-width="2" marker-end="url(#i1)"/>
+  <text class="req" x="489" y="106" text-anchor="middle">쿼리</text>
+
+  <!-- db -> be -->
+  <line x1="536" y1="144" x2="442" y2="144" stroke="#16a34a" stroke-width="2" marker-end="url(#i2)"/>
+  <!-- be -> fe -->
+  <line x1="276" y1="144" x2="182" y2="144" stroke="#16a34a" stroke-width="2" marker-end="url(#i2)"/>
+  <text class="res" x="229" y="166" text-anchor="middle">JSON 응답</text>
+
+  <text class="sub" x="360" y="210" text-anchor="middle">⚠ 막히는 곳: CORS · 주소/필드명 불일치 · 비동기 타이밍</text>
+</svg>

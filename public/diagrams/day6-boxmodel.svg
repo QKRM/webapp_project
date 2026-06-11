@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 360" role="img" aria-label="CSS 박스 모델: margin, border, padding, 내용" font-family="system-ui, sans-serif">
+  <style>
+    .margin  { fill: #fef3c7; stroke: #f59e0b; }
+    .border  { fill: #ddd6fe; stroke: #7c3aed; }
+    .padding { fill: #d1fae5; stroke: #10b981; }
+    .content { fill: #6366f1; }
+    .lbl     { font-size: 13px; font-weight: 700; }
+    .lmargin { fill: #b45309; } .lborder { fill: #6d28d9; }
+    .lpadding{ fill: #047857; } .lcontent{ fill: #ffffff; font-size: 15px; }
+    @media (prefers-color-scheme: dark) {
+      .margin  { fill: #422006; stroke: #f59e0b; }
+      .border  { fill: #2e1065; stroke: #a78bfa; }
+      .padding { fill: #064e3b; stroke: #34d399; }
+      .lmargin { fill: #fbbf24; } .lborder { fill: #c4b5fd; } .lpadding { fill: #6ee7b7; }
+    }
+  </style>
+  <rect class="margin"  x="10"  y="10"  width="440" height="340" rx="6" stroke-width="2" stroke-dasharray="6 4"/>
+  <text class="lbl lmargin" x="22" y="30">margin  (바깥 여백)</text>
+
+  <rect class="border"  x="60"  y="50"  width="340" height="260" rx="6" stroke-width="3"/>
+  <text class="lbl lborder" x="72" y="72">border  (테두리)</text>
+
+  <rect class="padding" x="110" y="92"  width="240" height="176" rx="6" stroke-width="2"/>
+  <text class="lbl lpadding" x="122" y="114">padding  (안쪽 여백)</text>
+
+  <rect class="content" x="160" y="140" width="140" height="80" rx="6"/>
+  <text class="lbl lcontent" x="230" y="185" text-anchor="middle">내용 (content)</text>
+</svg>

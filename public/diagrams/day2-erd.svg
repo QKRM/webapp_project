@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 320" role="img" aria-label="ERD: users 1 : N todos, todos.user_id가 users.id를 가리키는 외래키" font-family="system-ui, sans-serif">
+  <style>
+    .tbl   { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; }
+    .head  { fill: #6366f1; }
+    .htxt  { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .row   { fill: #1e293b; font-size: 13px; }
+    .key   { fill: #6366f1; font-size: 11px; font-weight: 700; }
+    .line  { stroke: #94a3b8; }
+    .gridln{ stroke: #e2e8f0; }
+    .card  { fill: #6366f1; font-size: 14px; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .tbl { fill: #0f172a; stroke: #334155; }
+      .row { fill: #e2e8f0; }
+      .gridln { stroke: #1e293b; }
+    }
+  </style>
+
+  <!-- users -->
+  <g>
+    <rect class="tbl" x="30" y="40" width="200" height="180" rx="8"/>
+    <path class="head" d="M30,48 a8,8 0 0 1 8,-8 h184 a8,8 0 0 1 8,8 v22 h-200 z"/>
+    <text class="htxt" x="130" y="64" text-anchor="middle">users</text>
+    <text class="row" x="46" y="92">id</text>          <text class="key" x="214" y="92" text-anchor="end">PK</text>
+    <text class="row" x="46" y="120">email</text>
+    <text class="row" x="46" y="148">password</text>
+    <text class="row" x="46" y="176">created_at</text>
+    <line class="gridln" x1="30" y1="100" x2="230" y2="100"/>
+    <line class="gridln" x1="30" y1="128" x2="230" y2="128"/>
+    <line class="gridln" x1="30" y1="156" x2="230" y2="156"/>
+  </g>
+
+  <!-- todos -->
+  <g>
+    <rect class="tbl" x="430" y="40" width="200" height="236" rx="8"/>
+    <path class="head" d="M430,48 a8,8 0 0 1 8,-8 h184 a8,8 0 0 1 8,8 v22 h-200 z"/>
+    <text class="htxt" x="530" y="64" text-anchor="middle">todos</text>
+    <text class="row" x="446" y="92">id</text>            <text class="key" x="614" y="92"  text-anchor="end">PK</text>
+    <text class="row" x="446" y="120">title</text>
+    <text class="row" x="446" y="148">is_done</text>
+    <text class="row" x="446" y="176">due_date</text>
+    <text class="row" x="446" y="204">user_id</text>       <text class="key" x="614" y="204" text-anchor="end">FK</text>
+    <text class="row" x="446" y="232">created_at</text>
+    <line class="gridln" x1="430" y1="100" x2="630" y2="100"/>
+    <line class="gridln" x1="430" y1="128" x2="630" y2="128"/>
+    <line class="gridln" x1="430" y1="156" x2="630" y2="156"/>
+    <line class="gridln" x1="430" y1="184" x2="630" y2="184"/>
+    <line class="gridln" x1="430" y1="212" x2="630" y2="212"/>
+  </g>
+
+  <!-- relation: users.id (1) → todos.user_id (N) -->
+  <path d="M230,86 C320,86 340,198 430,198" fill="none" class="line" stroke="#94a3b8" stroke-width="2"/>
+  <text class="card" x="250" y="78">1</text>
+  <text class="card" x="408" y="192">N</text>
+  <text class="row" x="330" y="150" text-anchor="middle" font-style="italic">한 사용자가</text>
+  <text class="row" x="330" y="168" text-anchor="middle" font-style="italic">여러 할 일을 가짐</text>
+</svg>

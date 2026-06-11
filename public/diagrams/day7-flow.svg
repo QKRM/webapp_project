@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-label="요청 흐름: 화면 → 서버(라우터·컨트롤러·검증) → DB → 응답" font-family="system-ui, sans-serif">
+  <style>
+    .box   { fill: #eef2ff; stroke: #6366f1; stroke-width: 2; }
+    .srv   { fill: #f8fafc; stroke: #6366f1; stroke-width: 2; }
+    .db    { fill: #ecfeff; stroke: #0891b2; stroke-width: 2; }
+    .title { fill: #312e81; font-size: 15px; font-weight: 700; }
+    .step  { fill: #475569; font-size: 12px; }
+    .dbt   { fill: #155e75; font-size: 15px; font-weight: 700; }
+    .req   { fill: #6366f1; font-size: 12px; font-weight: 600; }
+    .res   { fill: #16a34a; font-size: 12px; font-weight: 600; }
+    @media (prefers-color-scheme: dark) {
+      .box { fill: #1e1b4b; stroke: #818cf8; } .title { fill: #e0e7ff; }
+      .srv { fill: #0f172a; stroke: #818cf8; } .step { fill: #cbd5e1; }
+      .db  { fill: #083344; stroke: #22d3ee; } .dbt { fill: #a5f3fc; }
+      .res { fill: #4ade80; }
+    }
+  </style>
+  <defs>
+    <marker id="f1" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#6366f1"/></marker>
+    <marker id="f2" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#16a34a"/></marker>
+  </defs>
+
+  <!-- 화면 -->
+  <rect class="box" x="20" y="100" width="120" height="70" rx="10"/>
+  <text class="title" x="80" y="142" text-anchor="middle">화면</text>
+
+  <!-- 서버 -->
+  <rect class="srv" x="250" y="60" width="220" height="150" rx="10"/>
+  <text class="title" x="360" y="84" text-anchor="middle">서버</text>
+  <rect class="box" x="270" y="96"  width="180" height="30" rx="6"/>
+  <text class="step" x="360" y="116" text-anchor="middle">① 라우터 — 어느 코드로?</text>
+  <rect class="box" x="270" y="132" width="180" height="30" rx="6"/>
+  <text class="step" x="360" y="152" text-anchor="middle">② 컨트롤러 — 처리 로직</text>
+  <rect class="box" x="270" y="168" width="180" height="30" rx="6"/>
+  <text class="step" x="360" y="188" text-anchor="middle">③ 검증 — 입력·로그인 확인</text>
+
+  <!-- DB -->
+  <rect class="db" x="580" y="100" width="120" height="70" rx="10"/>
+  <text class="dbt" x="640" y="132" text-anchor="middle">DB</text>
+  <text class="step" x="640" y="152" text-anchor="middle">저장 / 조회</text>
+
+  <!-- request arrows -->
+  <line x1="142" y1="122" x2="246" y2="122" stroke="#6366f1" stroke-width="2" marker-end="url(#f1)"/>
+  <text class="req" x="194" y="112" text-anchor="middle">POST /todos</text>
+  <line x1="472" y1="122" x2="576" y2="122" stroke="#6366f1" stroke-width="2" marker-end="url(#f1)"/>
+  <text class="req" x="524" y="112" text-anchor="middle">INSERT</text>
+
+  <!-- response arrows -->
+  <line x1="576" y1="150" x2="472" y2="150" stroke="#16a34a" stroke-width="2" marker-end="url(#f2)"/>
+  <line x1="246" y1="186" x2="142" y2="186" stroke="#16a34a" stroke-width="2" marker-end="url(#f2)"/>
+  <text class="res" x="194" y="178" text-anchor="middle">201 Created</text>
+  <text class="res" x="360" y="250" text-anchor="middle">→ 새 할 일이 화면 목록에 나타남</text>
+</svg>

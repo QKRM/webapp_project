@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 230" role="img" aria-label="스프린트 한 주기: 계획 → 개발 → 리뷰 → 회고 → 반복" font-family="system-ui, sans-serif">
+  <style>
+    .box { fill: #eef2ff; stroke: #6366f1; stroke-width: 2; }
+    .title { fill: #312e81; font-size: 16px; font-weight: 700; }
+    .sub { fill: #64748b; font-size: 12px; }
+    .accent { fill: #6366f1; }
+    .loop { fill: #6366f1; font-size: 13px; font-weight: 600; }
+    @media (prefers-color-scheme: dark) {
+      .box { fill: #1e1b4b; stroke: #818cf8; }
+      .title { fill: #e0e7ff; }
+      .sub { fill: #94a3b8; }
+    }
+  </style>
+  <defs>
+    <marker id="a1" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" class="accent" />
+    </marker>
+  </defs>
+
+  <!-- boxes -->
+  <g>
+    <rect class="box" x="20"  y="80" width="140" height="64" rx="10"/>
+    <text class="title" x="90"  y="108" text-anchor="middle">스프린트 계획</text>
+    <text class="sub"   x="90"  y="128" text-anchor="middle">이번에 뭘 할지</text>
+
+    <rect class="box" x="200" y="80" width="140" height="64" rx="10"/>
+    <text class="title" x="270" y="108" text-anchor="middle">개발</text>
+    <text class="sub"   x="270" y="128" text-anchor="middle">실제 만들기</text>
+
+    <rect class="box" x="380" y="80" width="140" height="64" rx="10"/>
+    <text class="title" x="450" y="108" text-anchor="middle">리뷰</text>
+    <text class="sub"   x="450" y="128" text-anchor="middle">만든 거 확인</text>
+
+    <rect class="box" x="560" y="80" width="140" height="64" rx="10"/>
+    <text class="title" x="630" y="108" text-anchor="middle">회고</text>
+    <text class="sub"   x="630" y="128" text-anchor="middle">뭘 고칠지</text>
+  </g>
+
+  <!-- arrows between -->
+  <line class="accent" x1="162" y1="112" x2="196" y2="112" stroke="#6366f1" stroke-width="2" marker-end="url(#a1)"/>
+  <line class="accent" x1="342" y1="112" x2="376" y2="112" stroke="#6366f1" stroke-width="2" marker-end="url(#a1)"/>
+  <line class="accent" x1="522" y1="112" x2="556" y2="112" stroke="#6366f1" stroke-width="2" marker-end="url(#a1)"/>
+
+  <!-- loop back arrow -->
+  <path d="M630,80 C630,30 90,30 90,78" fill="none" stroke="#6366f1" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#a1)"/>
+  <text class="loop" x="360" y="28" text-anchor="middle">다음 스프린트로 반복 (2주)</text>
+</svg>

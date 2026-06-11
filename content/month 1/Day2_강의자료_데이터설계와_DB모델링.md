@@ -140,6 +140,8 @@ posts 테이블        post_tags 테이블 (연결용)       tags 테이블
 
 ### 글로 쓰는 ERD 예시 (할 일 앱)
 
+![ERD 예시: users 1 : N todos, todos.user_id가 users.id를 가리키는 외래키](/diagrams/day2-erd.svg)
+
 ```
 [users]
   id          (PK, 정수, 자동증가)
