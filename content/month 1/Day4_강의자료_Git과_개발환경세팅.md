@@ -1,3 +1,7 @@
+---
+navTitle: Git & 환경세팅
+---
+
 # Day 4 — Git/GitHub + 개발환경 세팅
 
 > **오늘의 목표**

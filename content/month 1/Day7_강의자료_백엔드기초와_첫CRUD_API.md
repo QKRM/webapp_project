@@ -1,3 +1,7 @@
+---
+navTitle: 첫 CRUD API
+---
+
 # Day 7 — 백엔드 기초 복습 + 첫 CRUD API 만들기
 
 > **오늘의 목표**

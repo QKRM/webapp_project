@@ -12,8 +12,15 @@ export type Lecture = {
   dayNum: number;
   daySlug: string; // "day-1"
   title: string; // 파일 안 첫 H1
+  navTitle: string; // 사이드바/카드용 짧은 라벨 (frontmatter navTitle, 없으면 자동 축약)
   fileName: string;
 };
+
+/** "Day 1 — 프로젝트 시작하기: ..." → "프로젝트 시작하기" 식 자동 축약 */
+function deriveNavTitle(title: string): string {
+  const afterDash = title.split(/[—–-]/).slice(1).join("-").trim() || title;
+  return afterDash.split(/[:：]/)[0].trim();
+}
 
 const MONTH_DIR_RE = /^month\s+(\d+)$/i;
 const DAY_FILE_RE = /^Day(\d+).*\.md$/i;
@@ -56,12 +63,16 @@ export function getAllLectures(): Lecture[] {
       const title =
         (typeof data.title === "string" && data.title) ||
         firstHeading(content, `Day ${dayNum}`);
+      const navTitle =
+        (typeof data.navTitle === "string" && data.navTitle) ||
+        deriveNavTitle(title);
       out.push({
         monthNum,
         monthSlug: `month-${monthNum}`,
         dayNum,
         daySlug: `day-${dayNum}`,
         title,
+        navTitle,
         fileName: f,
       });
     }
@@ -110,6 +121,9 @@ export function getLecture(
   const title =
     (typeof data.title === "string" && data.title) ||
     firstHeading(content, `Day ${dayNum}`);
+  const navTitle =
+    (typeof data.navTitle === "string" && data.navTitle) ||
+    deriveNavTitle(title);
 
   return {
     monthNum,
@@ -117,6 +131,7 @@ export function getLecture(
     dayNum,
     daySlug,
     title,
+    navTitle,
     fileName: file,
     markdown: content,
   };

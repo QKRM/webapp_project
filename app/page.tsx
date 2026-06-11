@@ -1,11 +1,6 @@
 import Link from "next/link";
 import { getLectureTree } from "@/lib/lectures";
 
-function shortTitle(t: string) {
-  const afterDash = t.split(/[—–-]/).slice(1).join("-").trim() || t;
-  return afterDash.split(/[:：]/)[0].trim();
-}
-
 export default function Home() {
   const tree = getLectureTree();
   const total = tree.reduce((n, m) => n + m.lectures.length, 0);
@@ -42,7 +37,7 @@ export default function Home() {
                   Day {lec.dayNum}
                 </div>
                 <h3 className="font-semibold leading-snug group-hover:text-indigo-600">
-                  {shortTitle(lec.title)}
+                  {lec.navTitle}
                 </h3>
               </Link>
             ))}

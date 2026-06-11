@@ -4,14 +4,13 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-type Lecture = { dayNum: number; daySlug: string; monthSlug: string; title: string };
+type Lecture = {
+  dayNum: number;
+  daySlug: string;
+  monthSlug: string;
+  navTitle: string;
+};
 type Tree = { monthNum: number; monthSlug: string; lectures: Lecture[] }[];
-
-function shortTitle(t: string) {
-  // "Day 1 — 프로젝트 시작하기: ..." → "프로젝트 시작하기"
-  const afterDash = t.split(/[—–-]/).slice(1).join("-").trim() || t;
-  return afterDash.split(/[:：]/)[0].trim();
-}
 
 export default function Shell({
   tree,
@@ -74,7 +73,7 @@ export default function Shell({
                         >
                           D{lec.dayNum}
                         </span>
-                        <span className="line-clamp-1">{shortTitle(lec.title)}</span>
+                        <span className="line-clamp-1">{lec.navTitle}</span>
                       </Link>
                     </li>
                   );
