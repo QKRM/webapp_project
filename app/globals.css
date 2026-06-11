@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── 강의 본문 마크다운 스타일 ───────────────────────────── */
+.prose-lec {
+  line-height: 1.75;
+  color: rgb(30 41 59); /* slate-800 */
+}
+:where(.dark) .prose-lec {
+  color: rgb(203 213 225); /* slate-300 */
+}
+
+.prose-lec h1 {
+  font-size: 1.875rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 1.25rem;
+}
+.prose-lec h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 2.25rem 0 0.9rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid rgb(226 232 240);
+}
+:where(.dark) .prose-lec h2 {
+  border-color: rgb(30 41 59);
+}
+.prose-lec h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 1.75rem 0 0.6rem;
+}
+.prose-lec p {
+  margin: 0.9rem 0;
+}
+.prose-lec a {
+  color: rgb(79 70 229);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose-lec ul,
+.prose-lec ol {
+  margin: 0.9rem 0;
+  padding-left: 1.5rem;
+}
+.prose-lec ul {
+  list-style: disc;
+}
+.prose-lec ol {
+  list-style: decimal;
+}
+.prose-lec li {
+  margin: 0.35rem 0;
+}
+.prose-lec li::marker {
+  color: rgb(148 163 184);
+}
+
+/* 인라인 코드 */
+.prose-lec code {
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  font-size: 0.875em;
+  background: rgb(241 245 249);
+  padding: 0.15em 0.4em;
+  border-radius: 0.3rem;
+}
+:where(.dark) .prose-lec code {
+  background: rgb(30 41 59);
+}
+
+/* 코드 블록 (highlight.js가 pre>code.hljs 처리) */
+.prose-lec pre {
+  margin: 1.2rem 0;
+  border-radius: 0.6rem;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.prose-lec pre code {
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* 인용구 — 강의자료의 💡 ⚠️ 박스 */
+.prose-lec blockquote {
+  margin: 1.2rem 0;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid rgb(99 102 241);
+  background: rgb(238 242 255);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+:where(.dark) .prose-lec blockquote {
+  background: rgb(30 27 75 / 0.4);
+}
+.prose-lec blockquote p {
+  margin: 0.4rem 0;
+}
+
+/* 표 */
+.prose-lec table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0;
+  font-size: 0.9rem;
+  display: block;
+  overflow-x: auto;
+}
+.prose-lec th,
+.prose-lec td {
+  border: 1px solid rgb(226 232 240);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+:where(.dark) .prose-lec th,
+:where(.dark) .prose-lec td {
+  border-color: rgb(51 65 85);
+}
+.prose-lec thead th {
+  background: rgb(248 250 252);
+  font-weight: 700;
+}
+:where(.dark) .prose-lec thead th {
+  background: rgb(30 41 59);
+}
+
+.prose-lec hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid rgb(226 232 240);
+}
+:where(.dark) .prose-lec hr {
+  border-color: rgb(51 65 85);
+}
+
+/* 체크박스 항목 (GFM task list) */
+.prose-lec input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+.prose-lec li:has(> input[type="checkbox"]) {
+  list-style: none;
+  margin-left: -1.25rem;
+}
